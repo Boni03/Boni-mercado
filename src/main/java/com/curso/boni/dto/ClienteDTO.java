@@ -1,4 +1,4 @@
-package dto;
+package com.curso.boni.dto;
 
 public class ClienteDTO {
 

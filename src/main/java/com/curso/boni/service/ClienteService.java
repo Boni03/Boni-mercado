@@ -1,7 +1,7 @@
-package service;
+package com.curso.boni.service;
 
-import domains.Cliente;
-import repository.ClienteRepository;
+import com.curso.boni.domains.Cliente;
+import com.curso.boni.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,12 +24,9 @@ public class ClienteService {
     }
 
     public Cliente atualizar(Long id, Cliente clienteAtualizado) {
-
         Cliente cliente = repository.findById(id).orElseThrow();
-
         cliente.setNome(clienteAtualizado.getNome());
         cliente.setEmail(clienteAtualizado.getEmail());
-
         return repository.save(cliente);
     }
 
