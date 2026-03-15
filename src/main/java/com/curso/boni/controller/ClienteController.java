@@ -1,11 +1,9 @@
-package controller;
+package com.curso.boni.controller;
 
-
-
-import domains.Cliente;
-import dto.ClienteDTO;
-import mapper.ClienteMapper;
-import service.ClienteService;
+import com.curso.boni.domains.Cliente;
+import com.curso.boni.dto.ClienteDTO;
+import com.curso.boni.mapper.ClienteMapper;
+import com.curso.boni.service.ClienteService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,17 +25,13 @@ public class ClienteController {
 
     @PostMapping
     public Cliente criar(@RequestBody ClienteDTO dto) {
-
         Cliente cliente = ClienteMapper.toEntity(dto);
-
         return service.salvar(cliente);
     }
 
     @PutMapping("/{id}")
     public Cliente atualizar(@PathVariable Long id, @RequestBody ClienteDTO dto) {
-
         Cliente cliente = ClienteMapper.toEntity(dto);
-
         return service.atualizar(id, cliente);
     }
 
