@@ -11,20 +11,14 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
-    private Cliente cliente;
-
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private PedidoStatus status;
 
     public Pedido() {
     }
 
-    public Pedido(Long id, Cliente cliente, PedidoStatus status) {
+    public Pedido(Long id, PedidoStatus status) {
         this.id = id;
-        this.cliente = cliente;
         this.status = status;
     }
 
@@ -32,20 +26,12 @@ public class Pedido {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
     public PedidoStatus getStatus() {
         return status;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setStatus(PedidoStatus status) {
